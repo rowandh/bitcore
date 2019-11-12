@@ -554,7 +554,7 @@ export class InternalStateProvider implements CSP.IChainStateService {
       .addCursorFlag('noCursorTimeout', true)
       .toArray();
     if (locatorBlocks.length < 2) {
-      return [Array(65).join('0')];
+      return ["0000066e91e46e5a264d42c89e1204963b2ee6be230b443e9159020539d972af"];
     }
     return locatorBlocks.map(block => block.hash);
   }

@@ -164,6 +164,26 @@ addNetwork({
 var livenet = get('livenet');
 
 addNetwork({
+  name: 'stratismain',
+  alias: 'stratis',
+  privatekey: 0x63,
+  scripthash: 0x05, // TODO
+  //bech32prefix: 'bc', // not supported
+  xpubkey: 0x0488b21e,
+  xprivkey: 0x0488ade4,
+  networkMagic: 0x70352205, //0x5223570;
+  port: 16178,
+  dnsSeeds: [
+    'mainnet1.stratisplatform.com',
+    'mainnet2.stratisnetwork.com',
+    'mainnet3.stratisplatform.com',
+    'mainnet4.stratisnetwork.com'
+  ]
+})
+
+var stratismain = get('stratismain');
+
+addNetwork({
   name: 'testnet',
   alias: 'test',
   pubkeyhash: 0x6f,
@@ -234,7 +254,7 @@ function disableRegtest() {
 module.exports = {
   add: addNetwork,
   remove: removeNetwork,
-  defaultNetwork: livenet,
+  defaultNetwork: stratismain,
   livenet: livenet,
   mainnet: livenet,
   testnet: testnet,
