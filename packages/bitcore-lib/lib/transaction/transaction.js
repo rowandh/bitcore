@@ -349,7 +349,10 @@ Transaction.prototype.fromBuffer = function(buffer) {
 Transaction.prototype.fromBufferReader = function(reader) {
   $.checkArgument(!reader.finished(), 'No transaction data received');
 
-  this.version = reader.readInt32LE();
+  this.version = reader.readUInt32LE();
+
+  // Stratis adds nTime to the transaction
+  this.nTime = reader.readUInt32LE();
   var sizeTxIns = reader.readVarintNum();
 
   // check for segwit
