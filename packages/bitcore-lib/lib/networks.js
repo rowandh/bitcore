@@ -168,7 +168,7 @@ addNetwork({
   alias: 'stratis',
   privatekey: 0x63,
   scripthash: 0x05, // TODO
-  //bech32prefix: 'bc', // not supported
+  bech32prefix: 'bc', // not supported
   xpubkey: 0x0488b21e,
   xprivkey: 0x0488ade4,
   networkMagic: 0x70352205, //0x5223570;
