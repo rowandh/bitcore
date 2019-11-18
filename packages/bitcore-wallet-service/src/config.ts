@@ -26,19 +26,15 @@ module.exports = {
   },
   messageBrokerOpts: {
     //  To use message broker server, uncomment this:
-    messageBrokerServer: {
-      url: 'http://localhost:3380',
-    },
+    // messageBrokerServer: {
+    //   url: 'http://localhost:3380',
+    // },
   },
   blockchainExplorerOpts: {
-    btc: {
-      livenet: {
-        url: 'https://api.bitcore.io',
-      },
-      testnet: {
-        url: 'https://api.bitcore.io',
-        regtestEnabled: false
-      },
+    stratis: {
+      stratismain: {
+        url: 'http://82.146.153.188:3000/',
+      }
     },
     bch: {
       livenet: {
@@ -60,7 +56,7 @@ module.exports = {
   pushNotificationsOpts: {
     templatePath: 'templates',
     defaultLanguage: 'en',
-    defaultUnit: 'btc',
+    defaultUnit: 'STRAT',
     subjectPrefix: '',
     pushServerUrl: 'https://fcm.googleapis.com/fcm',
     authorizationKey: 'You_have_to_put_something_here',
