@@ -7,7 +7,8 @@ module.exports = {
     ETH: 'eth',
     USDC: 'usdc',
     PAX: 'pax',
-    GUSD: 'gusd'
+    GUSD: 'gusd',
+    STRAT: 'strat'
   },
 
   ERC20: {
@@ -18,7 +19,8 @@ module.exports = {
 
   UTXO_COINS: {
     BTC: 'btc',
-    BCH: 'bch'
+    BCH: 'bch',
+    STRAT: 'strat'
   },
 
   NETWORKS: {
