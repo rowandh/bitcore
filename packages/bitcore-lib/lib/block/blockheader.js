@@ -143,7 +143,7 @@ BlockHeader._fromBufferReader = function _fromBufferReader(br, extraByte = true)
   info.bits = br.readUInt32LE();
   info.nonce = br.readUInt32LE();
   if(extraByte)
-    info.txCount = br.read(1); // Stratis adds an additional byte to the end of a header.
+    info.txCount = br.readUInt32LE(); // Stratis adds an additional counter to the end of a header.
   return info;
 };
 
