@@ -97,9 +97,9 @@ export const Constants = {
       }
     },
   },
-  COINS: ['btc', 'bch', 'eth', 'usdc', 'pax', 'gusd'],
+  COINS: ['btc', 'bch', 'eth', 'usdc', 'pax', 'gusd', 'strat'],
   ERC20: ['usdc', 'pax', 'gusd'],
-  UTXO_COINS: ['btc', 'bch'],
+  UTXO_COINS: ['btc', 'bch', 'strat'],
   TOKEN_OPTS: {
     '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': {
       name: 'USD Coin',
