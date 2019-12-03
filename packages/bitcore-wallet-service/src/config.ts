@@ -31,7 +31,7 @@ module.exports = {
     // },
   },
   blockchainExplorerOpts: {
-    stratis: {
+    strat: {
       livenet: {
         url: 'http://82.146.153.188:3000/',
       }

@@ -136,36 +136,31 @@ function removeNetwork(network) {
   }
 }
 
+// addNetwork({
+//   name: 'livenet',
+//   alias: 'mainnet',
+//   pubkeyhash: 0x00,
+//   privatekey: 0x80,
+//   scripthash: 0x05,
+//   bech32prefix: 'bc',
+//   xpubkey: 0x0488b21e,
+//   xprivkey: 0x0488ade4,
+//   networkMagic: 0xf9beb4d9,
+//   port: 8333,
+//   dnsSeeds: [
+//     'seed.bitcoin.sipa.be',
+//     'dnsseed.bluematt.me',
+//     'dnsseed.bitcoin.dashjr.org',
+//     'seed.bitcoinstats.com',
+//     'seed.bitnodes.io',
+//     'bitseed.xf2.org'
+//   ]
+// });
+
 addNetwork({
   name: 'livenet',
   alias: 'mainnet',
-  pubkeyhash: 0x00,
-  privatekey: 0x80,
-  scripthash: 0x05,
-  bech32prefix: 'bc',
-  xpubkey: 0x0488b21e,
-  xprivkey: 0x0488ade4,
-  networkMagic: 0xf9beb4d9,
-  port: 8333,
-  dnsSeeds: [
-    'seed.bitcoin.sipa.be',
-    'dnsseed.bluematt.me',
-    'dnsseed.bitcoin.dashjr.org',
-    'seed.bitcoinstats.com',
-    'seed.bitnodes.io',
-    'bitseed.xf2.org'
-  ]
-});
-
-/**
- * @instance
- * @member Networks#livenet
- */
-var livenet = get('livenet');
-
-addNetwork({
-  name: 'stratismain',
-  alias: 'stratis',
+  prefix: 'stratismain',
   pubkeyhash: 0x63,
   privatekey: 0xBF,
   scripthash: 0x125,
@@ -182,7 +177,11 @@ addNetwork({
   ]
 })
 
-var stratismain = get('stratismain');
+/**
+ * @instance
+ * @member Networks#livenet
+ */
+var livenet = get('livenet');
 
 addNetwork({
   name: 'testnet',
@@ -255,7 +254,7 @@ function disableRegtest() {
 module.exports = {
   add: addNetwork,
   remove: removeNetwork,
-  defaultNetwork: stratismain,
+  defaultNetwork: livenet,
   livenet: livenet,
   mainnet: livenet,
   testnet: testnet,

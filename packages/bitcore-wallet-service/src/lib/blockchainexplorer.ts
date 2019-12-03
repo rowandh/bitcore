@@ -21,6 +21,9 @@ const PROVIDERS = {
     eth: {
       livenet: 'https://api-eth.bitcore.io',
       testnet: 'https://api-eth.bitcore.io'
+    },
+    strat: {
+      livenet: 'http://82.146.153.188:3000/'
     }
   }
 };
