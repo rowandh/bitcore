@@ -30,7 +30,8 @@ const derivers: { [chain: string]: IDeriver } = {
   BTC: new BtcDeriver(),
   BCH: new BchDeriver(),
   ETH: new EthDeriver(),
-  XRP: new XrpDeriver()
+  XRP: new XrpDeriver(),
+  STRAT: new BtcDeriver()
 };
 
 export class DeriverProxy {
