@@ -166,8 +166,9 @@ var livenet = get('livenet');
 addNetwork({
   name: 'stratismain',
   alias: 'stratis',
-  privatekey: 0x63,
-  scripthash: 0x05, // TODO
+  pubkeyhash: 0x63,
+  privatekey: 0xBF,
+  scripthash: 0x125,
   bech32prefix: 'bc', // not supported
   xpubkey: 0x0488b21e,
   xprivkey: 0x0488ade4,
