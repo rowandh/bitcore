@@ -161,9 +161,9 @@ addNetwork({
   name: 'livenet',
   alias: 'mainnet',
   prefix: 'stratismain',
-  pubkeyhash: 0x63,
+  pubkeyhash: 0x3F,
   privatekey: 0xBF,
-  scripthash: 0x125,
+  scripthash: 0x7D,
   bech32prefix: 'bc', // not supported
   xpubkey: 0x0488b21e,
   xprivkey: 0x0488ade4,
