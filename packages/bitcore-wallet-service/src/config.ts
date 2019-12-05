@@ -33,7 +33,7 @@ module.exports = {
   blockchainExplorerOpts: {
     strat: {
       livenet: {
-        url: 'http://82.146.153.188:3000',
+        url: 'http://localhost:3000',
       }
     },
     bch: {
