@@ -11,7 +11,6 @@ var Address = bitcore.Address;
 var Script = bitcore.Script;
 var Networks = bitcore.Networks;
 var Input = bitcore.Transaction.Input;
-var BufferReader = require('../../../lib/encoding/bufferreader');
 
 describe('Transaction.Input', function() {
 
@@ -91,14 +90,6 @@ describe('Transaction.Input', function() {
       obj.script = 42;
       Input.fromObject.bind(null, obj).should.throw('Invalid argument type: script');
     });
-    it('from buffer should work', function() {
-      var buffer = new Buffer('4364AB00000000000000000000000000000000000000000000000000000000000100000002AABBFFFFFFFF', 'hex');
-      var reader = new BufferReader(buffer);
-      var input = Input.fromBufferReader(reader);
-      input.outputIndex.should.equal(1);
-      input.prevTxId.toString('hex').should.equal('0000000000000000000000000000000000000000000000000000000000ab6443');
-      input._scriptBuffer.toString('hex').should.equal('aabb');
-    })
   });
 
   it('_estimateSize returns correct size', function() {

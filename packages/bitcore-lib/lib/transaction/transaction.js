@@ -308,12 +308,11 @@ Transaction.prototype.hasWitnesses = function() {
 
 Transaction.prototype.toBufferWriter = function(writer, noWitness) {
   writer.writeInt32LE(this.version);
-  writer.writeUInt32LE(this.nTime);
 
   var hasWitnesses = this.hasWitnesses();
 
   if (hasWitnesses && !noWitness) {
-    writer.write(new Buffer('0001', 'hex'));
+    writer.write(Buffer.from('0001', 'hex'));
   }
 
   writer.writeVarintNum(this.inputs.length);
@@ -350,10 +349,7 @@ Transaction.prototype.fromBuffer = function(buffer) {
 Transaction.prototype.fromBufferReader = function(reader) {
   $.checkArgument(!reader.finished(), 'No transaction data received');
 
-  this.version = reader.readUInt32LE();
-
-  // Stratis adds nTime to the transaction
-  this.nTime = reader.readUInt32LE();
+  this.version = reader.readInt32LE();
   var sizeTxIns = reader.readVarintNum();
 
   // check for segwit
@@ -404,7 +400,6 @@ Transaction.prototype.toObject = Transaction.prototype.toJSON = function toObjec
   var obj = {
     hash: this.hash,
     version: this.version,
-    nTime: this.nTime,
     inputs: inputs,
     outputs: outputs,
     nLockTime: this.nLockTime
@@ -465,7 +460,6 @@ Transaction.prototype.fromObject = function fromObject(arg, opts) {
   }
   this.nLockTime = transaction.nLockTime;
   this.version = transaction.version;
-  this.nTime = transaction.nTime;
   this._checkConsistency(arg);
   return this;
 };
