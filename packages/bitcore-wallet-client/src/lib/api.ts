@@ -78,7 +78,11 @@ export class API extends EventEmitter {
     this.bp_partner = opts.bp_partner;
     this.bp_partner_version = opts.bp_partner_version;
 
-    this.request = new Request(opts.baseUrl || BASE_URL, { r: opts.request });
+    this.request = new Request(opts.baseUrl || BASE_URL, { 
+      r: opts.request,
+      supportStaffWalletId: opts.supportStaffWalletId,
+    });
+
     log.setLevel(this.logLevel);
   }
 
@@ -326,6 +330,16 @@ export class API extends EventEmitter {
   }
 
   // /**
+  // * toObj() wallet
+  // *
+  // * @param {Object} opts
+  // */
+  toObj() {
+    $.checkState(this.credentials);
+    return this.credentials.toObj();
+  }
+
+  // /**
   // * toString() wallet
   // *
   // * @param {Object} opts
@@ -338,21 +352,15 @@ export class API extends EventEmitter {
     opts = opts || {};
 
     var output;
-    var c = Credentials.fromObj(this.credentials);
-    output = JSON.stringify(c.toObj());
+    output = JSON.stringify(this.toObj());
     return output;
   }
 
-  // /**
-  // * fromString wallet
-  // *
-  // * @param {Object} str - The serialized JSON created with #export
-  // */
-  fromString(credentials) {
+  fromObj(credentials) {
+    $.checkArgument(_.isObject(credentials), 'Argument should be an object');
+
     try {
-      if (!_.isObject(credentials) || !(credentials as any).xPubKey) {
-        credentials = Credentials.fromObj(JSON.parse(credentials));
-      }
+      credentials = Credentials.fromObj(credentials);
       this.credentials = credentials;
     } catch (ex) {
       log.warn(`Error importing wallet: ${ex}`);
@@ -363,6 +371,26 @@ export class API extends EventEmitter {
       }
     }
     this.request.setCredentials(this.credentials);
+  }
+
+  // /**
+  // * fromString wallet
+  // *
+  // * @param {Object} str - The serialized JSON created with #export
+  // */
+  fromString(credentials) {
+    if (_.isObject(credentials)) {
+      log.warn('WARN: Please use fromObj instead of fromString when importing strings');
+      return this.fromObj(credentials);
+    }
+    let c;
+    try {
+      c = JSON.parse(credentials);
+    } catch (ex) {
+      log.warn(`Error importing wallet: ${ex}`);
+      throw new Errors.INVALID_BACKUP();
+    }
+    return this.fromObj(c);
   }
 
   decryptBIP38PrivateKey(encryptedPrivateKeyBase58, passphrase, opts, cb) {
@@ -524,8 +552,7 @@ export class API extends EventEmitter {
           throw e;
         }
       }
-
-      if (wallet.status != 'complete') return cb();
+      if (wallet.status != 'complete') return cb(null, ret);
 
       if (this.credentials.walletPrivKey) {
         if (!Verifier.checkCopayers(this.credentials, wallet.copayers)) {
@@ -2421,13 +2448,33 @@ export class API extends EventEmitter {
         : new API(clientOpts);
 
       client.fromString(c);
-      client.openWallet({}, err => {
-        console.log(
-          `PATH: ${c.rootPath} n: ${c.n}:`,
-          err && err.message ? err.message : 'FOUND!'
-        ); // TODO
+      client.openWallet({}, (err, status) => {
+//        console.log(
+//          `PATH: ${c.rootPath} n: ${c.n}:`,
+//          err && err.message ? err.message : 'FOUND!'
+//        );
+
         // Exists
-        if (!err) return icb(null, client);
+        if (!err) {
+          let clients = [client];
+          // Eth wallet with tokens?
+          const tokenAddresses = status.preferences.tokenAddresses;
+          if (!_.isEmpty(tokenAddresses)) {
+            _.each(tokenAddresses, (t) => {
+              const token = Constants.TOKEN_OPTS[t];
+              if (!token) {
+                log.warn(`Token ${t} unknown`);
+                return;
+              }
+              log.info(`Importing token: ${token.name}`);
+              const tokenCredentials = client.credentials.getTokenCredentials(token);
+              let tokenClient = _.cloneDeep(client);
+              tokenClient.credentials = tokenCredentials;
+              clients.push(tokenClient);
+            });
+          }
+          return icb(null, clients);
+        }
         if (
           err instanceof Errors.NOT_AUTHORIZED ||
           err instanceof Errors.WALLET_DOES_NOT_EXIST
@@ -2491,10 +2538,10 @@ export class API extends EventEmitter {
           // TODO OPTI: do not scan accounts if XX
           //
           // 1. check account 0
-          checkCredentials(key, optsObj, (err, iclient) => {
+          checkCredentials(key, optsObj, (err, iclients) => {
             if (err) return next(err);
-            if (!iclient) return next();
-            clients.push(iclient);
+            if (_.isEmpty(iclients)) return next();
+            clients = clients.concat(iclients);
 
             // Accounts not allowed?
             if (
@@ -2515,14 +2562,12 @@ export class API extends EventEmitter {
               icb => {
                 optsObj.account = account++;
 
-                checkCredentials(key, optsObj, (err, iclient) => {
+                checkCredentials(key, optsObj, (err, iclients) => {
                   if (err) return icb(err);
-                  cont = !!iclient;
-                  if (iclient) {
-                    clients.push(iclient);
-                  } else {
-                    // we do not allow accounts nr gaps in BWS.
-                    cont = false;
+                  // we do not allow accounts nr gaps in BWS.
+                  cont = !_.isEmpty(iclients);
+                  if (cont) {
+                    clients = clients.concat(iclients);
                   }
                   return icb();
                 });
@@ -2613,7 +2658,6 @@ export class API extends EventEmitter {
         if (err) return callback(err);
 
         if (_.isEmpty(resultingClients)) k = null;
-
         return callback(null, k, resultingClients);
       }
     );
