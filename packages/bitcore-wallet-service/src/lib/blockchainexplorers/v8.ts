@@ -15,7 +15,7 @@ const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash'),
   eth: Bitcore,
-  strat: require('bitcore-lib-stratis')
+  strat: require('bitcore-lib')
 };
 const config = require('../../config');
 const Constants = Common.Constants,

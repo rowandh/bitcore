@@ -30,7 +30,7 @@ const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash'),
   eth: Bitcore,
-  strat: require('bitcore-lib-stratis')
+  strat: Bitcore
 };
 
 const Common = require('./common');
