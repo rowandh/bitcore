@@ -2,6 +2,20 @@
   "lerna": "2.9.1",
   "version": "8.9.0",
   "packages": [
-    "packages/*"
+    "packages/bitcore-build",
+    "packages/bitcore-client",
+    "packages/bitcore-lib",
+    "packages/bitcore-lib-stratis",
+    "packages/bitcore-lib-cash",
+    "packages/bitcore-mnemonic",
+    "packages/crypto-wallet-core",
+    "packages/crypto-wallet-core-stratis",
+    "packages/bitcore-p2p",
+    "packages/bitcore-p2p-cash",
+    "packages/bitcore-p2p-stratis",
+    "packages/bitcore-wallet-client",
+    "packages/bitcore-wallet-client-stratis",
+    "packages/bitcore-wallet",
+    "packages/bitcore-wallet-service"
   ]
 }
