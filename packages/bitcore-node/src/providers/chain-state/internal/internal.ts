@@ -16,7 +16,7 @@ import { StringifyJsonStream } from '../../../utils/stringifyJsonStream';
 import { StateStorage } from '../../../models/state';
 import { SpentHeightIndicators, CoinJSON } from '../../../types/Coin';
 import { Config } from '../../../services/config';
-import { Validation } from 'crypto-wallet-core';
+import { Validation } from 'crypto-wallet-core-stratis';
 import { TransactionJSON } from '../../../types/Transaction';
 import { IBlock } from '../../../models/baseBlock';
 

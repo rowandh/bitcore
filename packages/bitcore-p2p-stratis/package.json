@@ -1,5 +1,5 @@
 {
-  "name": "bitcore-p2p",
+  "name": "bitcore-p2p-stratis",
   "version": "8.9.0",
   "description": "Interface to the bitcoin P2P network for bitcore",
   "main": "index.js",

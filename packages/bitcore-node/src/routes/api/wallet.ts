@@ -1,6 +1,6 @@
 import { Response, Router } from 'express';
 import { ChainStateProvider } from '../../providers/chain-state';
-import { Validation } from 'crypto-wallet-core';
+import { Validation } from 'crypto-wallet-core-stratis';
 import { Auth, AuthenticatedRequest } from '../../utils/auth';
 const router = Router({ mergeParams: true });
 
