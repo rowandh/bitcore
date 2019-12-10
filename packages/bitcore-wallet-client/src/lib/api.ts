@@ -343,6 +343,23 @@ export class API extends EventEmitter {
     return output;
   }
 
+  fromObj(credentials) {
+    $.checkArgument(_.isObject(credentials), 'Argument should be an object');
+
+    try {
+      credentials = Credentials.fromObj(credentials);
+      this.credentials = credentials;
+    } catch (ex) {
+      log.warn(`Error importing wallet: ${ex}`);
+      if (ex.toString().match(/Obsolete/)) {
+        throw new Errors.OBSOLETE_BACKUP();
+      } else {
+        throw new Errors.INVALID_BACKUP();
+      }
+    }
+    this.request.setCredentials(this.credentials);
+  }
+
   // /**
   // * fromString wallet
   // *
