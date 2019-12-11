@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { Constants, Utils } from './common';
 import { Credentials } from './credentials';
 
-import { Transactions } from 'crypto-wallet-core';
+import { Transactions } from 'crypto-wallet-core-stratis';
 import { BitcoreLib } from 'bitcore-lib-stratis';
 
 var Bitcore = BitcoreLib;

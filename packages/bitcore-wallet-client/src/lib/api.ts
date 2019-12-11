@@ -1,6 +1,6 @@
 'use strict';
 
-import * as CWC from 'crypto-wallet-core';
+import * as CWC from 'crypto-wallet-core-stratis';
 import { BitcoreLib } from 'bitcore-lib-stratis'
 import { BitcoreLibCash } from 'bitcore-lib-cash';
 import { EventEmitter } from 'events';

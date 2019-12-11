@@ -3,7 +3,7 @@
 import {
   Deriver,
   Transactions
-} from 'crypto-wallet-core';
+} from 'crypto-wallet-core-stratis';
 import { BitcoreLib } from 'bitcore-lib-stratis';
 import { BitcoreLibCash } from 'bitcore-lib-cash';
 import * as _ from 'lodash';
