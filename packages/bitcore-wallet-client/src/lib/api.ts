@@ -65,7 +65,7 @@ export class API extends EventEmitter {
   static errors = Errors;
 
   // Expose bitcore
-  static Bitcore = BitcoreLibStratis;
+  static Bitcore = BitcoreLib;
   static BitcoreCash = BitcoreLibCash;
 
   constructor(opts?) {
