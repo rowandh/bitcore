@@ -2,7 +2,8 @@ import * as _ from 'lodash';
 import { Constants, Utils } from './common';
 var $ = require('preconditions').singleton();
 
-import { BitcoreLib, BitcoreLibCash } from 'crypto-wallet-core';
+import { BitcoreLib } from 'bitcore-lib-stratis';
+import { BitcoreLibCash } from 'bitcore-lib-cash';
 
 var Bitcore = BitcoreLib;
 var BCHAddress = BitcoreLibCash.Address;

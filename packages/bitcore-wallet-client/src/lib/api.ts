@@ -1,6 +1,8 @@
 'use strict';
 
 import * as CWC from 'crypto-wallet-core';
+import { BitcoreLib } from 'bitcore-lib-stratis'
+import { BitcoreLibCash } from 'bitcore-lib-cash';
 import { EventEmitter } from 'events';
 import _ from 'lodash';
 import sjcl from 'sjcl';
@@ -16,11 +18,11 @@ var $ = require('preconditions').singleton();
 var util = require('util');
 var async = require('async');
 var events = require('events');
-var Bitcore = CWC.BitcoreLib;
+var Bitcore = BitcoreLib;
 var Bitcore_ = {
-  btc: CWC.BitcoreLib,
-  bch: CWC.BitcoreLibCash,
-  eth: CWC.BitcoreLib
+  btc: BitcoreLib,
+  bch: BitcoreLibCash,
+  eth: BitcoreLib
 };
 var Mnemonic = require('bitcore-mnemonic');
 var url = require('url');
@@ -63,8 +65,8 @@ export class API extends EventEmitter {
   static errors = Errors;
 
   // Expose bitcore
-  static Bitcore = CWC.BitcoreLib;
-  static BitcoreCash = CWC.BitcoreLibCash;
+  static Bitcore = BitcoreLibStratis;
+  static BitcoreCash = BitcoreLibCash;
 
   constructor(opts?) {
     super();

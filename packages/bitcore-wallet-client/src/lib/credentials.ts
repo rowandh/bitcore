@@ -1,6 +1,6 @@
 'use strict';
 
-import { BitcoreLib } from 'crypto-wallet-core';
+import { BitcoreLib } from 'bitcore-lib-stratis';
 
 import { Constants, Utils } from './common';
 const $ = require('preconditions').singleton();

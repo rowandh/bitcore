@@ -1,12 +1,11 @@
 'use strict';
 
 import {
-  BitcoreLib,
-  BitcoreLibCash,
   Deriver,
   Transactions
 } from 'crypto-wallet-core';
-
+import { BitcoreLib } from 'bitcore-lib-stratis';
+import { BitcoreLibCash } from 'bitcore-lib-cash';
 import * as _ from 'lodash';
 import { Constants } from './constants';
 import { Defaults } from './defaults';
@@ -17,9 +16,9 @@ var Stringify = require('json-stable-stringify');
 
 var Bitcore = BitcoreLib;
 var Bitcore_ = {
-  btc: Bitcore,
+  btc: BitcoreLib,
   bch: BitcoreLibCash,
-  eth: Bitcore
+  eth: BitcoreLib
 };
 var PrivateKey = Bitcore.PrivateKey;
 var PublicKey = Bitcore.PublicKey;

@@ -1,5 +1,5 @@
-
-import { BitcoreLib, BitcoreLibCash } from 'crypto-wallet-core';
+import { BitcoreLib } from 'bitcore-lib-stratis';
+import { BitcoreLibCash } from 'bitcore-lib-cash';
 
 var $ = require('preconditions').singleton();
 const URL = require('url');
