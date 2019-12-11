@@ -17,7 +17,7 @@ var config = require('../test-config');
 var Bitcore = require('bitcore-lib-stratis');
 var Bitcore_ = {
   btc: Bitcore,
-  bch: require('bitcore-lib-cash')
+  bch: require('bitcore-lib-stratis')
 };
 
 var { ChainService } = require('../../ts_build/lib/chain/index');

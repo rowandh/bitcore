@@ -30,7 +30,7 @@ import { Validation } from 'crypto-wallet-core';
 const Bitcore = require('bitcore-lib-stratis');
 const Bitcore_ = {
   btc: Bitcore,
-  bch: require('bitcore-lib-cash'),
+  bch: require('bitcore-lib-stratis'),
   eth: Bitcore
 };
 
