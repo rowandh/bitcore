@@ -8,7 +8,7 @@ import { mockStorage } from '../../helpers';
 import { WalletAddressStorage } from '../../../src/models/walletAddress';
 import { ObjectId } from 'bson';
 import { CoinStorage } from '../../../src/models/coin';
-const bitcoreLib = require('bitcore-lib');
+const bitcoreLib = require('bitcore-lib-stratis');
 
 describe('Transaction Model', function() {
   let sandbox = sinon.sandbox.create();

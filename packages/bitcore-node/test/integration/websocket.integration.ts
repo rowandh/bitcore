@@ -7,7 +7,7 @@ import config from '../../src/config';
 import { Event } from '../../src/services/event';
 import { Api } from '../../src/services/api';
 import { BitcoinP2PWorker } from '../../src/modules/bitcoin/p2p';
-const { PrivateKey } = require('bitcore-lib');
+const { PrivateKey } = require('bitcore-lib-stratis');
 
 const chain = 'BTC';
 const network = 'regtest';

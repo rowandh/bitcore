@@ -1,8 +1,8 @@
 class LibProvider {
   libs = {
     BTC: {
-      lib: require('bitcore-lib'),
-      p2p: require('bitcore-p2p')
+      lib: require('bitcore-lib-stratis'),
+      p2p: require('bitcore-p2p-stratis')
     }
   };
 

@@ -8,7 +8,7 @@ import { Config } from '../services/config';
 import logger from '../logger';
 
 const secp256k1 = require('secp256k1');
-const bitcoreLib = require('bitcore-lib');
+const bitcoreLib = require('bitcore-lib-stratis');
 
 export type VerificationPayload = {
   message: string;
