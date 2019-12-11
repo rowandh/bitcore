@@ -9,7 +9,7 @@ import { Transactions } from 'crypto-wallet-core';
 import { BitcoreLib } from 'bitcore-lib-stratis';
 
 var Bitcore = BitcoreLib;
-var Mnemonic = require('bitcore-mnemonic');
+var Mnemonic = require('bitcore-mnemonic-stratis');
 var sjcl = require('sjcl');
 var log = require('./log');
 const async = require('async');

@@ -24,7 +24,7 @@ var Bitcore_ = {
   bch: BitcoreLibCash,
   eth: BitcoreLib
 };
-var Mnemonic = require('bitcore-mnemonic');
+var Mnemonic = require('bitcore-mnemonic-stratis');
 var url = require('url');
 var querystring = require('querystring');
 
