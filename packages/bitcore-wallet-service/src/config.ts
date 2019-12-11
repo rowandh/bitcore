@@ -21,14 +21,14 @@ module.exports = {
 
   storageOpts: {
     mongoDb: {
-      uri: 'mongodb://localhost:27017/bws',
+      uri: 'mongodb://192.168.117.1:27017/bws',
     },
   },
   messageBrokerOpts: {
     //  To use message broker server, uncomment this:
-    messageBrokerServer: {
-      url: 'http://localhost:3380',
-    },
+    // messageBrokerServer: {
+    //   url: 'http://localhost:3380',
+    // },
   },
   blockchainExplorerOpts: {
     btc: {
