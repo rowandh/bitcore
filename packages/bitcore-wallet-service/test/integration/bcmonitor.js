@@ -2,7 +2,7 @@
 var _ = require('lodash');
 var async = require('async');
 
-const CWC = require('crypto-wallet-core');
+const CWC = require('crypto-wallet-core-stratis');
 var chai = require('chai');
 var sinon = require('sinon');
 var should = chai.should();

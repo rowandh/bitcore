@@ -1,4 +1,4 @@
-import { Transactions, Validation } from 'crypto-wallet-core';
+import { Transactions, Validation } from 'crypto-wallet-core-stratis';
 import _ from 'lodash';
 import { IAddress } from 'src/lib/model/address';
 import { IChain } from '..';

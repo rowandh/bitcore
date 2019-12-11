@@ -26,7 +26,7 @@ log.level = 'error';
 
 const EmailValidator = require('email-validator');
 
-import { Validation } from 'crypto-wallet-core';
+import { Validation } from 'crypto-wallet-core-stratis';
 const Bitcore = require('bitcore-lib-stratis');
 const Bitcore_ = {
   btc: Bitcore,

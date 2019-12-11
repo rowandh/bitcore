@@ -1,4 +1,4 @@
-import { BitcoreLib } from 'crypto-wallet-core';
+import { BitcoreLib } from 'crypto-wallet-core-stratis';
 import _ from 'lodash';
 import { IChain } from '..';
 import { ClientError } from '../../errors/clienterror';
