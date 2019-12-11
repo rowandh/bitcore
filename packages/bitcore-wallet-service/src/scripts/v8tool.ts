@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const request = require('request');
-const Bitcore = require('bitcore-lib');
+const Bitcore = require('bitcore-lib-stratis');
 import { Client } from '../lib//blockchainexplorers/v8/client';
 
 const coin = process.argv[2] ;

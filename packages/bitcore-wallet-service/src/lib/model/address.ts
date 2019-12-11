@@ -38,7 +38,7 @@ export class Address {
   beRegistered: boolean;
 
   static Bitcore = {
-    btc: require('bitcore-lib'),
+    btc: require('bitcore-lib-stratis'),
     bch: require('bitcore-lib-cash')
   };
 

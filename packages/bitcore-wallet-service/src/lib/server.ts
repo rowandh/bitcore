@@ -27,7 +27,7 @@ log.level = 'error';
 const EmailValidator = require('email-validator');
 
 import { Validation } from 'crypto-wallet-core';
-const Bitcore = require('bitcore-lib');
+const Bitcore = require('bitcore-lib-stratis');
 const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash'),

@@ -13,9 +13,9 @@ const Constants = Common.Constants,
   Defaults = Common.Defaults,
   Utils = Common.Utils;
 const Bitcore = {
-  btc: require('bitcore-lib'),
+  btc: require('bitcore-lib-stratis'),
   bch: require('bitcore-lib-cash'),
-  eth: require('bitcore-lib')
+  eth: require('bitcore-lib-stratis')
 };
 
 export interface IWallet {

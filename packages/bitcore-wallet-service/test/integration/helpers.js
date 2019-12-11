@@ -14,7 +14,7 @@ var config = require('../test-config');
 //   memStore: true
 // });
 
-var Bitcore = require('bitcore-lib');
+var Bitcore = require('bitcore-lib-stratis');
 var Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash')

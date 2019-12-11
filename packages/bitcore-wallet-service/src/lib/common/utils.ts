@@ -1,10 +1,10 @@
 import _ from 'lodash';
 
 const $ = require('preconditions').singleton();
-const bitcore = require('bitcore-lib');
+const bitcore = require('bitcore-lib-stratis');
 const crypto = bitcore.crypto;
 const secp256k1 = require('secp256k1');
-const Bitcore = require('bitcore-lib');
+const Bitcore = require('bitcore-lib-stratis');
 const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash')
