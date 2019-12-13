@@ -10,7 +10,10 @@
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/build/**/*.js"],
       "console": "integratedTerminal",
-      "preLaunchTask": "npm: compile"
+      "preLaunchTask": "npm: compile",
+      "env": {
+        "BITCORE_CONFIG_PATH": "~/.bitcore/bitcore.config.json"
+      }
     },
     {
       "type": "node",
