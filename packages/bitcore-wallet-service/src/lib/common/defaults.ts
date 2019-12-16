@@ -7,6 +7,7 @@ module.exports = {
     btc: 10000 * 1000, // 10k sat/b
     bch: 10000 * 1000, // 10k sat/b
     eth: 50000000000, // 50 Gwei
+    strat: 10000 * 1000 // TODO
   },
 
   MIN_TX_FEE: {
@@ -19,12 +20,14 @@ module.exports = {
     btc: 0.05 * 1e8,
     bch: 0.05 * 1e8,
     eth: 1 * 1e18,  // 1 eth
+    strat: 0.5 * 1e8 // TODO
   },
 
   MAX_TX_SIZE_IN_KB: {
     btc: 100,
     bch: 100,
     eth: 500,
+    strat: 100 // TODO
   },
 
   // ETH
@@ -112,7 +115,35 @@ module.exports = {
         multiplier: 0.8,
         defaultValue: 10000000000
       }
-    ]
+    ],
+    strat: [
+      {
+        name: 'urgent',
+        nbBlocks: 1,
+        multiplier: 1.5,
+        defaultValue: 75000
+      },
+      {
+        name: 'priority',
+        nbBlocks: 1,
+        defaultValue: 50000
+      },
+      {
+        name: 'normal',
+        nbBlocks: 1,
+        defaultValue: 30000
+      },
+      {
+        name: 'economy',
+        nbBlocks: 2,
+        defaultValue: 25000
+      },
+      {
+        name: 'superEconomy',
+        nbBlocks: 1,
+        defaultValue: 10000
+      }
+    ],    
   },
 
   // How many levels to fallback to if the value returned by the network for a given nbBlocks is -1
@@ -191,7 +222,7 @@ module.exports = {
     // },
   },
 
-  COIN: 'btc',
+  COIN: 'strat',
   INSIGHT_REQUEST_POOL_SIZE: 10,
   INSIGHT_TIMEOUT: 30000,
 
