@@ -283,6 +283,8 @@ export class Utils {
 
       var t = new bitcore.Transaction();
 
+      t.nTime = txp.createdOn;
+
       $.checkState(
         _.includes(_.values(Constants.SCRIPT_TYPES), txp.addressType)
       );

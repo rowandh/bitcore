@@ -201,6 +201,9 @@ export class BtcChain implements IChain {
   buildTx(txp) {
     const t = new this.bitcoreLib.Transaction();
 
+    // Add timestamp in unix time seconds
+    t.nTime = txp.createdOn;
+
     switch (txp.addressType) {
       case Constants.SCRIPT_TYPES.P2SH:
         _.each(txp.inputs, i => {
