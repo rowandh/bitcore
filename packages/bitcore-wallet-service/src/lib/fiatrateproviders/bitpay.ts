@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 module.exports = {
   name: 'BitPay',
-  url: 'https://bitpay.com/api/rates/',
+  url: 'https://stratis-rates.azurewebsites.net/api/rates/',
   parseFn(raw) {
     const rates = _.compact(
       _.map(raw, (d) => {
