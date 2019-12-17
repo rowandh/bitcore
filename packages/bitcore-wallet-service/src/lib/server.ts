@@ -1826,11 +1826,8 @@ export class WalletService {
   _sampleFeeLevels(coin, network, points, cb) {
     const bc = this._getBlockchainExplorer(coin, network);
     if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
-    bc.estimateFee(points, (err, result) => {
-      if (err) {
-        this.logw('Error estimating fee', err);
-        return cb(err);
-      }
+    
+    const result = Defaults.FEE_LEVELS[coin];
 
       const failed = [];
       const levels = _.fromPairs(
@@ -1860,7 +1857,7 @@ export class WalletService {
       }
 
       return cb(null, levels, failed.length);
-    });
+
   }
 
   /**
@@ -1883,6 +1880,8 @@ export class WalletService {
 
     const cacheKey = 'feeLevel:' + opts.coin + ':' + opts.network;
 
+    const feeLevels = Defaults.FEE_LEVELS[opts.coin];
+    
     this.storage.checkAndUseGlobalCache(
       cacheKey,
       Defaults.FEE_LEVEL_CACHE_DURATION,
