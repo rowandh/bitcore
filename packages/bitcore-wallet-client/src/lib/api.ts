@@ -30,7 +30,7 @@ var querystring = require('querystring');
 var log = require('./log');
 const Errors = require('./errors');
 
-var BASE_URL = 'http://localhost:3232/bws/api';
+var BASE_URL = 'https://bws.smartcontracts.pw/bws/api';
 
 // /**
 // * @desc ClientAPI constructor.
