@@ -21,7 +21,7 @@ module.exports = {
 
   storageOpts: {
     mongoDb: {
-      uri: 'mongodb://192.168.117.1:27017/bws',
+      uri: 'mongodb://localhost:27017/bws',
     },
   },
   messageBrokerOpts: {
