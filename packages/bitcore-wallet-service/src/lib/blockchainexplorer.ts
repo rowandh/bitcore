@@ -23,7 +23,7 @@ const PROVIDERS = {
       testnet: 'https://api-eth.bitcore.io'
     },
     strat: {
-      livenet: 'http://localhost:3000'
+      livenet: 'http://mw-i.stratisplatform.com:3000'
     }
   }
 };

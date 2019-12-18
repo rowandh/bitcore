@@ -33,7 +33,7 @@ module.exports = {
   blockchainExplorerOpts: {
     strat: {
       livenet: {
-        url: 'http://localhost:3000',
+        url: 'http://mw-i.stratisplatform.com:3000',
       }
     },
     bch: {
