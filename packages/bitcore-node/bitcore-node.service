@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=stratis
 Group=stratis
-Environment="BITCORE_CONFIG_PATH=/home/stratis/bitcore/bitcore.config.json"
-ExecStart=/usr/bin/node /home/stratis/Desktop/bitcore/packages/bitcore-node/build/src/server.js
+Environment="BITCORE_CONFIG_PATH=/home/bitcore/config/bitcore.config.json"
+ExecStart=/usr/bin/node /home/bitcore/bitcore/packages/bitcore-node/build/src/server.js
 
 [Install]
 WantedBy=multi-user.target
