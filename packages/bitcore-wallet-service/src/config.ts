@@ -1,7 +1,7 @@
 module.exports = {
   basePath: '/bws/api',
   disableLogs: false,
-  port: 3232,
+  port: 80,
 
   // Uncomment to make BWS a forking server
   // cluster: true,
@@ -9,9 +9,9 @@ module.exports = {
   // Uncomment to set the number or process (will use the nr of availalbe CPUs by default)
   // clusterInstances: 4,
 
-  // https: true,
-  // privateKeyFile: 'private.pem',
-  // certificateFile: 'cert.pem',
+  https: true,
+  privateKeyFile: 'private.pem',
+  certificateFile: 'cert.pem',
   ////// The following is only for certs which are not
   ////// trusted by nodejs 'https' by default
   ////// CAs like Verisign do not require this
