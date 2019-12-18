@@ -3,8 +3,8 @@ Description=Bitcore Node
 After=network.target
 
 [Service]
-User=stratis
-Group=stratis
+User=bitcore
+Group=bitcore
 Environment="BITCORE_CONFIG_PATH=/home/bitcore/config/bitcore.config.json"
 ExecStart=/usr/bin/node /home/bitcore/bitcore/packages/bitcore-node/build/src/server.js
 
