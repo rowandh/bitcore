@@ -12,6 +12,7 @@ module.exports = {
   https: true,
   privateKeyFile: 'private.pem',
   certificateFile: 'cert.pem',
+  chain: 'chain.pem',
   ////// The following is only for certs which are not
   ////// trusted by nodejs 'https' by default
   ////// CAs like Verisign do not require this
